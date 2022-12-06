@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Silent Blog | {% block title %}{% endblock %}</title> </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- CSS only -->
+
+    <!-- Price Slider Stylesheets -->
+    <link rel="stylesheet" href="{% static '/css/nouislider.css' %}">
+    <!-- Google fonts - Playfair Display-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
+    <!-- swiper-->
+    <link rel="stylesheet" href="{% static '/css/swiper.min.css' %}">
+    <!-- Magnigic Popup-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static '/css/default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+      <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+    {% comment %} <script src="{% static '/js/main.js' %}"> </script> {% endcomment %}
+
+
+   </head>
+  <body style="padding-top: 72px;">
+    <input type="hidden" id="csrf" value="{{csrf_token}}">
+    <header class="header">
+     
+      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-primary">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="/">
+          <h3 class="text-light">Silent Blog</h3>
+          </div>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+          <!-- Navbar Collapse -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+            <ul class="navbar-nav ml-auto">
+              
+            {% if request.user.is_authenticated %}
+              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block">
+                <a class="btn btn-primary" href="{% url 'add_blog' %}">Add Blogs</a> 
+                <a href="{% url 'see_blog' %}" class="btn btn-primary">View Your blogs</a>
+              </li>
+              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block">
+                <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+              </li>
+
+              {% else %}
+              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block">
+                <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+              </li>
+
+              {% endif %}
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- /Navbar -->
+    </header>
+   
+
+    {% block start %}
+
+
+    {% endblock %}
+
+
+    <footer class="position-relative z-index-10 d-print-none">
+   
+      <div class="py-4 font-weight-light bg-primary text-gray-300">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+              <p class="text-sm mb-md-0 text-center">&copy; 2020, Silent Blog.  All rights reserved.</p>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </footer>
+   
+    
+  </body>
+
+
+</html>
