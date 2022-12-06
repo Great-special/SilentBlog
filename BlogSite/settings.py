@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['silentblog.up.railway.app',]
 
-CSRF_TRUSTED_ORICINS = ['https://silentblog.up.railway.app/']
+CSRF_TRUSTED_ORICINS = ['https://silentblog.up.railway.app']
 
 # Application definition
 
