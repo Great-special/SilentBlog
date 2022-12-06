@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-os_ceijh30g3+ton2z_*&e#4o!g+*3fdp*$!5$m)v)*gje$h60
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://silentblog.up.railway.app/',]
+ALLOWED_HOSTS = ['silentblog.up.railway.app',]
 
 CSRF_TRUSTED_ORICINS = ['https://silentblog.up.railway.app/']
 
